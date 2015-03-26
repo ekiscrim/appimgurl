@@ -1,0 +1,21 @@
+{% extends "header.html" %}
+{% block contenido %}
+	<div class="container">
+		{% if valido %}
+			<h1>Bienvenido</h1>
+		{%else%}
+			<form method="POST" action="{{ url_for('core.registro') }}"> <!-- le paso el nombre del blueprint-->
+				{{form.hidden_tag()}}
+				{{form.nick.label}} 
+				{{form.nick}}
+				{{form.passw.label}}
+				{{form.passw}}
+				{{form.submit}}
+			</form>
+		{%endif%}
+	</div>
+
+{% endblock %}
+
+</body>
+</html>
